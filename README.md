@@ -197,7 +197,12 @@ use Mitrik\Shipping\ServiceProviders\Box\BoxMetric;
 use Mitrik\Shipping\ServiceProviders\ServiceUPS\ServiceUPS;
 use Mitrik\Shipping\ServiceProviders\ServiceUPS\ServiceUPSCredentials;
 
-$credentials = new ServiceUPSCredentials(env('UPS_ACCESS_KEY'), env('UPS_USER_ID'), env('UPS_PASSWORD'));
+$credentials = new ServiceUPSCredentials(
+    env('UPS_CLIENT_ID'),
+    env('UPS_CLIENT_SECRET'),
+    env('UPS_USER_ID'),
+    env('UPS_ACCOUNT_NUMBER')
+);
 $serviceUPS = new ServiceUPS($credentials);
 
 $rates = $serviceUPS->rate(
