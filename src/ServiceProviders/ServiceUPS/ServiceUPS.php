@@ -233,7 +233,7 @@ class ServiceUPS extends ServiceProvider {
                 $weight_code = 'KGS';
                 $weight_description = 'Kilograms';
             } else {
-                thrown new \UnexpectedValueException('Unsupported Box class.');
+                throw new \UnexpectedValueException('Unsupported Box class.');
             }
 
             $package = [
